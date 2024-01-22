@@ -1,5 +1,10 @@
+import React from'react';
+import Register from './pages/register';
+
 function App() {
-  return <div>Hello World!</div>;
+  return (
+    <Register />
+  )
 }
 
 export default App;
