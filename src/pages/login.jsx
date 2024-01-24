@@ -9,7 +9,7 @@ const Login = () => {
         <span className="title">Login</span>
         <form >
           <input required type="email" placeholder="email" />
-          <input required type="password" placeholder="password" />
+          <input required type="password" placeholder="password" autoComplete="true"/>
           <button>Sign In</button>
         </form>
         <p>
