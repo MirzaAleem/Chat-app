@@ -196,7 +196,7 @@ body{
         
         .chatInfo{
           height: 50px;
-          background-color:#5d5b8d;
+          background: linear-gradient(45deg, #5d5b8d, #da4141);
           display: flex;
           align-items: center;
           justify-content: space-between;
@@ -212,6 +212,40 @@ body{
             height: 24px;
             cursor: pointer;
           }
+        }
+        .messages{
+          padding: 10px;
+          height: calc(100% - 160px);
+        }
+        .input{
+          height: 50px;
+          background-color: #ffffff;
+          padding: 10px;
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+
+            input{      /* this is input tag inside input class*/
+              width: 100%;
+              border: none;
+              outline: none;
+              font-size: 15px;
+
+              ::placeholder{
+                color: lightgray;
+              }
+            }
+
+            .send{
+              display: flex;
+              align-items: center;
+              gap: 10px;
+
+              img{
+                height: 24px;
+                cursor: pointer;
+              }
+            }
         }
       }
     }
