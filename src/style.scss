@@ -216,6 +216,61 @@ body{
         .messages{
           padding: 10px;
           height: calc(100% - 160px);
+          overflow-y: scroll;
+
+          .message{
+            display: flex;
+            gap: 10px;
+            margin-bottom: 20px;
+
+            .messageInfo{
+              display: flex;
+              flex-direction: column;
+              color: grey;
+              font-weight: 300;
+              font-size: 12px;
+              img{
+                height: 30px;
+                width: 30px;
+                border-radius: 50%;
+                object-fit: cover;
+              }
+            }
+
+            .messageContent{
+              max-width: 80%;
+              display: flex;
+              flex-direction: column;
+              gap: 10px;
+
+              p{
+                margin: 0;
+                background-color: #3e3c61;
+                color: white;
+                padding: 10px 20px;
+                border-radius: 0px 10px 10px 10px;
+                max-width: max-content;
+              }
+              img{
+                width: 50%;                
+              }
+            }
+
+            // & is used for css selector to select the message class and the owner class both
+            &.owner{
+              flex-direction: row-reverse;
+
+              .messageContent{
+                align-items: flex-end;
+
+                p{
+                  background-color: #e99292;
+                  color: white;
+                  border-radius: 10px 0px 10px 10px;
+                }
+              }
+            }
+          }
         }
         .input{
           height: 50px;
@@ -243,6 +298,14 @@ body{
 
               img{
                 height: 24px;
+                cursor: pointer;
+              }
+
+              button{
+                border: none;
+                padding: 10px 15px;
+                color: white;
+                background-color: #b84a4e;
                 cursor: pointer;
               }
             }
