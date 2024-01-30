@@ -3,12 +3,12 @@ import { collection, query, where, getDocs } from "firebase/firestore";
 import { db } from '../firebase'
 
 function Search() {
-  const [userName, setUserName] = useState(null)
+  const [username, setUserName] = useState('')
   const [user, setUser] = useState(null)
   const [err, setErr] = useState(null)
 
   const handleSearch = async () => {
-    const q = query(collection(db, 'users'), where('username', '==', userName))
+    const q = query(collection(db, 'users'), where('displayName', '==', username))
     
     try {
       const querySnapshot = await getDocs(q);
@@ -32,6 +32,7 @@ function Search() {
           placeholder="Find a user"
           onKeyDown={handleKey}
           onChange={(e)=>{setUserName(e.target.value)}}
+          value={username}
         />
       </div>
       {err && <span>User not found !</span>}
