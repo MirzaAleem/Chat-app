@@ -4,9 +4,11 @@ import { createUserWithEmailAndPassword, updateProfile } from "firebase/auth";
 import { auth,db, storage } from "../firebase";
 import { ref, uploadBytesResumable, getDownloadURL } from "firebase/storage";
 import { doc, setDoc } from "firebase/firestore"; 
+import { Link, useNavigate } from "react-router-dom";
 
 const Register = () => {
   const [err,setErr] = useState(false);
+  const navigate = useNavigate();
   const handleSubmit = async (e) => {
     e.preventDefault();
     const displayName = e.target[0].value
@@ -15,39 +17,41 @@ const Register = () => {
     const file = e.target[3].files[0]
     
     try {
-      const res = await createUserWithEmailAndPassword(auth, email, password)
+      //Create user
+      const res = await createUserWithEmailAndPassword(auth, email, password);
+      
+      //Create a unique image name
+      const date = new Date().getTime();
+      const storageRef = ref(storage, `${displayName + date}`);
 
-      const storageRef = ref(storage, displayName);
-      const uploadTask = uploadBytesResumable(storageRef, file);
-
-      uploadTask.on('state_changed', 
-        (snapshot) => {
-          
-        }, 
-        (error) => {
-          setErr(true)
-        }, 
-        () => {
-          getDownloadURL(uploadTask.snapshot.ref).then(async (downloadURL) => {
-            //update profile
-            await updateProfile(res.user,{
-              displayName: displayName,
+      await uploadBytesResumable(storageRef, file).then(() => {
+        getDownloadURL(storageRef).then(async (downloadURL) => {
+          try {
+            //Update profile
+            await updateProfile(res.user, {
+              displayName,
               photoURL: downloadURL,
             });
-            //create user doc in firestore
+            //create user on firestore
             await setDoc(doc(db, "users", res.user.uid), {
               uid: res.user.uid,
-              displayName: displayName,
+              displayName,
               email,
               photoURL: downloadURL,
             });
-          });
-        }
-      );
-    } catch (error) {
-      setErr(true)
-    } 
-  }
+
+          } catch (err) {
+            console.log(err);
+            setErr(true);
+          }
+        });
+        navigate('/');
+      });
+    } catch (err) {
+      setErr(true);
+    }
+  };
+
 
   return (
     <div className="formContainer">
@@ -64,10 +68,10 @@ const Register = () => {
             <span>Add an avatar</span>
           </label>
           <button>Sign Up</button>
-          {err && <p>something went wrong !</p>}
+          {err && <p>something went wrong ! {console.error(err)}</p>}
         </form>
         <p>
-          You do have an account?
+          You do have an account? <Link to={'/login'}>Login</Link>
         </p>
       </div>
     </div>
