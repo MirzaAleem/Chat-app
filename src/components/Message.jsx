@@ -13,7 +13,6 @@ function Message({message}) {
     ref.current?.scrollIntoView({ behavior: "smooth" });
   }, [message]);
 
-  console.log(message);
 
   return (
     <div 

@@ -11,7 +11,6 @@ export const AuthContextProvider = ({ children }) => {
         //firebase function to get the user
         const unsub = onAuthStateChanged(auth, (user) => {
           setCurrentUser(user);
-          console.log(user);
         });
     
         return () => {
