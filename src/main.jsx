@@ -9,7 +9,7 @@ ReactDOM.createRoot(document.getElementById('root')).render(
     <ChatContextProvider>
       <React.StrictMode>
         <App />
-      </React.StrictMode>,
+      </React.StrictMode>
     </ChatContextProvider>
   </AuthContextProvider>
 )
