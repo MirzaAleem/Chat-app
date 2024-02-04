@@ -193,6 +193,22 @@ body{
         .Chats {
           height: 70%;
           overflow-y: scroll;
+  
+          /* width */
+          &::-webkit-scrollbar {
+            width: 5px;
+          }
+
+          /* Track */
+          &::-webkit-scrollbar-track {
+            display: none;
+          }
+
+          /* Handle */
+          &::-webkit-scrollbar-thumb {
+            background: grey;
+            border-radius: 10px;
+          }
         }
 
           .userChat {
@@ -256,6 +272,22 @@ body{
           padding: 10px;
           height: calc(100% - 160px);
           overflow-y: scroll;
+
+          /* width */
+          &::-webkit-scrollbar {
+            width: 5px;
+          }
+
+          /* Track */
+          &::-webkit-scrollbar-track {
+            display: none;
+          }
+
+          /* Handle */
+          &::-webkit-scrollbar-thumb {
+            background: grey;
+            border-radius: 10px;
+          }
 
           .message{
             display: flex;
