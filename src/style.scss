@@ -190,39 +190,44 @@ body{
             }
           }
         }
-        .userChat {
-          padding: 10px;
-          display: flex;
-          align-items: center;
-          gap: 10px;
-          color: white;
-          cursor: pointer;
-  
-          &:hover {
-            background-color: #2f2d52;
-          }
-  
-          img {
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            object-fit: cover;
-          }
+        .Chats {
+          height: 70%;
+          overflow-y: scroll;
         }
-        .userChatInfo{
-          display: flex;
-          flex-direction: column;
-          justify-content: center;
-          
-          span{
-            font-weight: 500;
+
+          .userChat {
+            padding: 10px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            color: white;
+            cursor: pointer;
+    
+            &:hover {
+              background-color: #2f2d52;
+            }
+    
+            img {
+              width: 40px;
+              height: 40px;
+              border-radius: 50%;
+              object-fit: cover;
+            }
           }
-          p{
-            margin: 0px;
-            font-size: 14px;
-            color: lightgray;
+          .userChatInfo{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            
+            span{
+              font-weight: 500;
+            }
+            p{
+              margin: 0px;
+              font-size: 14px;
+              color: lightgray;
+            }
           }
-        }
       }
       .chat{
         flex: 2;
