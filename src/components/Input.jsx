@@ -66,8 +66,11 @@ function Input() {
     setText("");
     setImg(null);
   }
+  const handleKey = (e) => {
+    e.code === "Enter" && handleSend()
+  }
   return (
-    <div className='input'>
+    <div className='input' onKeyDown={handleKey}>
         <input type="text" placeholder='Type something...'
           onChange={(e) => setText(e.target.value)}
           value={text}
