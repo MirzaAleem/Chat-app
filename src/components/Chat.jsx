@@ -5,7 +5,6 @@ import More from "../img/more.png";
 import Messages from "./Messages";
 import Input from "./Input";
 import leftChevron from "../img/leftChevron.png";
-import leftChevron from "../img/leftChevron.png";
 import { ChatContext } from "../context/chatContext";
 
 function chat() {
