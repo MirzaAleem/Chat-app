@@ -21,8 +21,8 @@ function chat() {
     >
       <div className="chatInfo">
         <div style={{display: 'flex', alignItems:'center'}}>
-          {window.innerWidth < 450 && <span onClick={handleClick}>
-            <img src="src\img\left-chevron.png" alt="" width={'20px'}/>
+          {window.innerWidth <= 450 && <span onClick={handleClick}>
+            <img src="src/img/left-chevron.png" alt="" width={'20px'}/>
           </span>}
           <span style={{marginLeft:'5px'}}>{data?.user.displayName}</span>
         </div>
