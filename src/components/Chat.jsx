@@ -4,6 +4,7 @@ import Add from "../img/add.png";
 import More from "../img/more.png";
 import Messages from "./Messages";
 import Input from "./Input";
+import leftChevron from "../img/leftChevron.png";
 import { ChatContext } from "../context/chatContext";
 
 function chat() {
@@ -11,7 +12,6 @@ function chat() {
   const handleClick = () => {
     dispatch({ type: "CHANGE_SELECTED", payload: false });
   };
-  console.log(data.selected);
   return (
     <div
       className="chat"
@@ -21,9 +21,9 @@ function chat() {
     >
       <div className="chatInfo">
         <div style={{display: 'flex', alignItems:'center'}}>
-          {window.innerWidth <= 450 && <span onClick={handleClick}>
-            <img src="src/img/leftChevron.png" alt="" width='20px'/>
-          </span>}
+          <span onClick={handleClick}>
+            <img src={leftChevron} alt="" width='20px'/>
+          </span>
           <span style={{marginLeft:'5px'}}>{data?.user.displayName}</span>
         </div>
         <div className="chatIcons">
